@@ -1,6 +1,4 @@
-<?php include('../header.php') ?>
-
-asdfasdfasdfasdfasdfasfasfasdfasdfasdfasdfasdfas
-</body>
-
-</html>
+<?php
+$title = 'Login';
+include('../header.php')
+?>

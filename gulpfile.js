@@ -31,14 +31,14 @@ gulp.task('styles', function() {
 });
 gulp.task('phptohtml', function(){
   gulp.src('src/pages/**/*.php')
-	.pipe(php2html())
+	.pipe(php2html({haltOnError: false}))
 	.pipe(gulp.dest("./app"));
 });
 
 gulp.task('watch', function(){
   gulp.watch('src/pages/**/*.php', ['phptohtml']);
   gulp.watch('assets/css/**/*.scss', ['styles']);
-  gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('app/**/*.html', browserSync.reload);
 });
 
 gulp.task('browserSync', function() {

@@ -1,0 +1,17 @@
+// removes outline and shadow from focus
+input:focus{
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: $green !important
+}
+
+.rd-input{
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  border-bottom: 2px solid $green;
+  border-radius: 0;
+  &::-webkit-input-placeholder{
+    color: black;
+  }
+}

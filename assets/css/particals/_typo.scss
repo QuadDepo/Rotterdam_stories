@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Kreon');
+
 h1{
-  font-family: "Helvetica";
   font-size: 50px;
-  font-weight: bold;
+
+}
+h1, h2, h3 ,h4, h5, h6, button, a{
+    font-family: "Helvetica";
+    font-weight: bold;
+}
+
+p, input, textarea{
+  font-family: 'Kreon', serif;
 }

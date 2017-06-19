@@ -1,0 +1,24 @@
+html,body{
+  height: 100%;
+}
+.bottom{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+// removes outline buttons and all others
+*:focus
+{
+    outline: none !important;
+}
+// login page logo
+#login{
+  height: 100%;
+  background-image: url(../img/login_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#login .logo{
+  margin-top: 75px;
+  margin-bottom: 100px;
+}

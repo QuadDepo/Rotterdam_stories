@@ -1,0 +1,22 @@
+// Vendor
+
+@import "vendor/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "vendor/font-awesome/scss/font-awesome";
+@import "vendor/animate.css/animate";
+
+// particals
+
+@import 'particals/colors';
+@import 'particals/mixins';
+@import 'particals/typo';
+
+// Modules
+@import 'modules/base';
+@import 'modules/buttons';
+@import 'modules/cam';
+@import 'modules/form';
+@import 'modules/gids';
+@import 'modules/img';
+@import 'modules/nav';
+@import 'modules/profile';
+@import 'modules/quiz';

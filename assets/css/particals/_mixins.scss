@@ -1,0 +1,56 @@
+// Responsive
+
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
+
+
+// Margin auto
+
+
+@mixin push--auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+@mixin no-padding-lg($lr) {
+  @if $lr == left {
+    @include breakpoint(md){
+      padding-left: 0px;
+    }
+  }
+  @else if $lr == right{
+    @include breakpoint(md){
+      padding-right: 0px;
+    }
+  }
+  @else if $lr == both{
+    @include breakpoint(md){
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+  @else{
+    @warn "no valid something";
+  }
+}

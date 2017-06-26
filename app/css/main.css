@@ -10523,6 +10523,19 @@ p, input, textarea {
 html, body {
   height: 100%; }
 
+.terug {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-family: "Kreon", serif; }
+  .terug a, .terug a:hover {
+    text-decoration: none;
+    color: inherit; }
+  .terug.green {
+    color: #188B43; }
+  .terug.white {
+    color: white; }
+
 .bottom {
   position: absolute;
   bottom: 0;
@@ -10531,15 +10544,35 @@ html, body {
 *:focus {
   outline: none !important; }
 
-#login {
+#login, #register {
   height: 100%;
   background-image: url(../img/login_bg.png);
   background-size: cover;
   background-repeat: no-repeat; }
+  #login .logo, #register .logo {
+    margin-top: 75px;
+    margin-bottom: 100px; }
 
-#login .logo {
-  margin-top: 75px;
-  margin-bottom: 100px; }
+#register .form-group {
+  margin-bottom: 0px !important; }
+
+.message {
+  position: fixed;
+  border-radius: 0%;
+  padding: 30px 0px;
+  text-align: center;
+  z-index: 2;
+  width: 100%; }
+  .message.godown {
+    animation: godown;
+    animation-duration: 0.7s;
+    animation-timing-function: ease; }
+
+@keyframes godown {
+  0% {
+    top: -100px; }
+  100% {
+    top: 0px; } }
 
 .btn-big {
   background-color: #188B43;

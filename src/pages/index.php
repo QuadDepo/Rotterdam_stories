@@ -15,14 +15,40 @@ include '../header.php';
         <input type="text" placeholder="Email" class="form-control rd-input" id="email">
       </div>
       <div class="form-group">
-        <input type="text" placeholder="Wachtwoord" class="form-control rd-input" id="email">
+        <input type="text" placeholder="Wachtwoord" class="form-control rd-input" id="wachtwoord">
       </div>
       <p>Wachtwoord vergeten? <a href="#">Klik hier</a></p>
     </div>
     <div class="bottom">
-      <p class="text-center">Geen account? <a href="#">registeer hier</a></p>
-    <button class="btn-big btn-green">Login</button>
+      <p class="text-center">Geen account? <a href="register.php">registeer hier</a></p>
+    <button id="login-btn" class="btn-big btn-green">Login</button>
     </div>
   </div>
 </div>
 </div>
+<?php
+  include '../scripts.php';
+ ?>
+
+<script type="text/javascript">
+$('#login-btn').click(function(){
+  var account = {
+    email: 'ryan@qdds.nl',
+    wachtwoord: '123test123'
+  };
+  account = JSON.stringify(account);
+  localStorage.setItem('account', account);
+  lstore = JSON.parse(localStorage.getItem('account'));
+  console.log('login btn click');
+  console.log(lstore.email);
+  if ($('#email').val() === '' || $('#wachtwoord').val() === '') {
+    console.log('something is empty');
+  }else{
+  }
+});
+</script>
+
+
+<?php
+  include '../footer.php';
+?>

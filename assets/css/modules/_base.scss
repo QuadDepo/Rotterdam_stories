@@ -1,5 +1,8 @@
-html,body{
+html,
+body {
   height: 100%;
+  width: 100%;
+  overflow: scroll;
 }
 .terug{
  position: absolute;
@@ -50,8 +53,10 @@ html,body{
   padding: 30px 0px;
   text-align: center;
   z-index: 2;
+  margin-top: -100px;
   width: 100%;
   &.godown{
+    display: block;
     animation: godown;
     animation-duration: 0.7s;
     animation-timing-function: ease;
@@ -60,6 +65,76 @@ html,body{
 
 
 @keyframes godown {
-  0%   { top: -100px; }
-  100% { top: 0px; }
+  from   { top: -100px}
+  to { top: 0px; }
+}
+@keyframes goup {
+  from   { top: 0px}
+  to { top: -100px; }
+}
+
+
+#content{
+  margin-top: 50px;
+  position: relative;
+  // overflow: hidden;
+  // max-height: calc(100% - 40px);
+}
+
+// Homepage in app
+
+#intro_home{
+  background-color: $green;
+  color: white;
+  h3{
+    margin-top: 0;
+  }
+  p{
+    margin-bottom: 15px;
+  }
+  padding: 30px 0px;
+}
+
+img.rounded{
+  border-radius: 50%;
+  border: 5px $green solid;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+#middle_home{
+  margin-top: 20px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  height: 50%;
+  h5{
+    display: inline-block;
+  }
+  p{
+    margin-left: 20px;
+    display: inline-block;
+    color: $green;
+  }
+}
+
+#foto-previeuw{
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  top: 0;
+  display: none;
+  position: absolute;
+  z-index: 9;
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+
+::-webkit-scrollbar {
+display: none;
 }

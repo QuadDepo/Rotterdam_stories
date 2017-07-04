@@ -3,16 +3,35 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <meta name="HandheldFriendly" content="true" />
         <meta htp-equiv="X-UA-Compatible" content="ie=edge">
+
         <link rel="stylesheet" href="/css/main.css">
-        <title>Home</title>
+        <title>Registreer</title>
     </head>
     <body>
-<div class="message godown alert alert-danger">
-   Oeps Wrong password</div>
+ <script type="text/javascript">
+
+   if (localStorage.getItem('token') !== null) {
+     window.location.href = "/user";
+   }
+ </script>
+ <div id="message" class="message alert alert-danger">
+    <p></p>
+ </div>
+
+
 <div id="register">
-  <div class="terug green"><a href="/"><i class="fa fa-arrow-left"></i> Terug</a></div>
+  <script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<div style="cursor:pointer" onclick="goBack()" class="terug <br />
+<b>Notice</b>:  Undefined variable: terug_color in <b>/Users/george/Documents/Rotterdam_stories/src/terug.php</b> on line <b>6</b><br />
+"><i class="fa fa-arrow-left"></i> Terug</div>
   <div class="container">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
@@ -57,21 +76,88 @@
   });
   </script>
 
+
+
 <script type="text/javascript" src="/js/jquery.touchSwipe.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
 <script>
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
 $("#registreer").click(function(){
   var naam = $("#naam"), email = $("#email"), gb = $("#gb"), wp = $("#wp"), wp2 = $("#wp2");
+  var empty = false;
 
+  var message;
 
-  if (naam.value.length || email.value.length || gb.value.length || wp.value.length || wp2.value.length) {
-
-
+  if (naam.val() === '') {
+    naam.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (email.val() === '') {
+    email.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (gb.val() === '') {
+    gb.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (wp.val() === '') {
+    wp.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (wp2.val() === '') {
+    wp2.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (wp.val() !== wp2.val()) {
+    wp.css('border-color', 'red');
+    wp2.css('border-color', 'red');
+    empty = true;
+    message = 'wachtwoorden zijn niet het zelfde';
+  }
+  if (empty) {
+    $('#message').animate({marginTop: "0px"}, 700).html(message);
+    console.log(empty);
+    setTimeout(function(){
+      $('#message').animate({marginTop: "-100px"}, 700)
+    }, 2000);
+    empty = false;
+  }else {
+    if (validateEmail(email.val())) {
+      console.log('succesfull');
+      var account = {
+        naam: naam.val(),
+        gb: gb.val(),
+        email: email.val(),
+        wachtwoord: wp.val()
+      };
+      localStorage.setItem('account', JSON.stringify(account))
+      console.log(localStorage.getItem('account'));
+      window.location.href = "/login.html";
+    }
   }
 
 
 });
-
+$('input').focus(function(){
+  // console.log(this);
+  // console.log($(this).css('border-color'));
+  if ($(this).css('border-color') === 'rgb(255, 0, 0)') {
+    $(this).css('border-color', '#188B43');
+    console.log(this);
+  }else {
+    return;
+  }
+});
 
 $(".message").swipe( {
   swipeUp:function(event, direction, distance, duration) {

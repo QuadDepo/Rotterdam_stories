@@ -1,12 +1,21 @@
 <?php
-$title = 'Home';
-$message_sort= 'danger';
-$message= 'Oeps Wrong password';
+$title = 'Registreer';
 include '../header.php';
-include '../message.php';
+
  ?>
+ <script type="text/javascript">
+
+   if (localStorage.getItem('token') !== null) {
+     window.location.href = "/user";
+   }
+ </script>
+ <div id="message" class="message alert alert-danger">
+    <p></p>
+ </div>
+
+
 <div id="register">
-  <div class="terug green"><a href="/"><i class="fa fa-arrow-left"></i> Terug</a></div>
+  <?php include '../terug.php'; ?>
   <div class="container">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
@@ -42,18 +51,83 @@ include '../message.php';
 </div>
 <?php include '../scripts.php' ?>
 <script>
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
 $("#registreer").click(function(){
   var naam = $("#naam"), email = $("#email"), gb = $("#gb"), wp = $("#wp"), wp2 = $("#wp2");
+  var empty = false;
 
+  var message;
 
-  if (naam.value.length || email.value.length || gb.value.length || wp.value.length || wp2.value.length) {
-
-
+  if (naam.val() === '') {
+    naam.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (email.val() === '') {
+    email.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (gb.val() === '') {
+    gb.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (wp.val() === '') {
+    wp.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (wp2.val() === '') {
+    wp2.css('border-color', 'red');
+    empty = true;
+    message = 'vul in alle velden';
+  }
+  if (wp.val() !== wp2.val()) {
+    wp.css('border-color', 'red');
+    wp2.css('border-color', 'red');
+    empty = true;
+    message = 'wachtwoorden zijn niet het zelfde';
+  }
+  if (empty) {
+    $('#message').animate({marginTop: "0px"}, 700).html(message);
+    console.log(empty);
+    setTimeout(function(){
+      $('#message').animate({marginTop: "-100px"}, 700)
+    }, 2000);
+    empty = false;
+  }else {
+    if (validateEmail(email.val())) {
+      console.log('succesfull');
+      var account = {
+        naam: naam.val(),
+        gb: gb.val(),
+        email: email.val(),
+        wachtwoord: wp.val()
+      };
+      localStorage.setItem('account', JSON.stringify(account))
+      console.log(localStorage.getItem('account'));
+      window.location.href = "/login.html";
+    }
   }
 
 
 });
-
+$('input').focus(function(){
+  // console.log(this);
+  // console.log($(this).css('border-color'));
+  if ($(this).css('border-color') === 'rgb(255, 0, 0)') {
+    $(this).css('border-color', '#188B43');
+    console.log(this);
+  }else {
+    return;
+  }
+});
 
 $(".message").swipe( {
   swipeUp:function(event, direction, distance, duration) {

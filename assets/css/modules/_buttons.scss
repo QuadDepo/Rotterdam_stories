@@ -6,5 +6,40 @@
   font-size: 29px;
   border: 0;
   color: white;
+}
 
+
+.btn-100{
+  width: 100%;
+  &.btn-line{
+    background-color: transparent;
+    border: 1px $white solid;
+    padding: 5px 0px;
+  }
+}
+
+
+#foto-knoppen{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  .container-fluid{
+    padding: 0px;
+  }
+  .yes, .no{
+    padding: 10px;
+    font-size: 25px;
+    color: white;
+    display: inline-block;
+
+  }
+  .yes{
+    background-color: $green;
+
+  }
+  .no{
+    background-color: red;
+  }
 }

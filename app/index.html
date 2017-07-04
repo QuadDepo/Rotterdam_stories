@@ -3,36 +3,16 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <meta name="HandheldFriendly" content="true" />
         <meta htp-equiv="X-UA-Compatible" content="ie=edge">
+
         <link rel="stylesheet" href="/css/main.css">
         <title>Home</title>
     </head>
     <body>
-<div id="login">
-  <div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="logo">
-        <img src="http://23100.tk/container2/files/Projects/Project%20Rotterdam/logo.svg" alt="">
-      </div>
-    </div>
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="form-group">
-        <input type="text" placeholder="Email" class="form-control rd-input" id="email">
-      </div>
-      <div class="form-group">
-        <input type="text" placeholder="Wachtwoord" class="form-control rd-input" id="wachtwoord">
-      </div>
-      <p>Wachtwoord vergeten? <a href="#">Klik hier</a></p>
-    </div>
-    <div class="bottom">
-      <p class="text-center">Geen account? <a href="register.html">registeer hier</a></p>
-    <button id="login-btn" class="btn-big btn-green">Login</button>
-    </div>
-  </div>
-</div>
-</div>
+
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
@@ -44,25 +24,20 @@
   });
   </script>
 
+
+
 <script type="text/javascript" src="/js/jquery.touchSwipe.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
 
 <script type="text/javascript">
-$('#login-btn').click(function(){
-  var account = {
-    email: 'ryan@qdds.nl',
-    wachtwoord: '123test123'
-  };
-  account = JSON.stringify(account);
-  localStorage.setItem('account', account);
-  lstore = JSON.parse(localStorage.getItem('account'));
-  console.log('login btn click');
-  console.log(lstore.email);
-  if ($('#email').val() === '' || $('#wachtwoord').val() === '') {
-    console.log('something is empty');
-  }else{
-  }
-});
+  $(window).load(function(){
+    console.log(localStorage.getItem('token'));
+    if (localStorage.getItem('token') !== null) {
+      window.location.href = "/user";
+    }else {
+      window.location.href = "login.html";
+    }
+  })
 </script>
 
 

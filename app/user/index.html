@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <meta name="HandheldFriendly" content="true" />
+        <meta htp-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="/css/main.css">
+        <title>Home</title>
+    </head>
+    <body>
+<script>
+  if (localStorage.getItem('token') === null) {
+    window.location.href = "/";
+  }
+</script>
+
+<div id="foto-previeuw">
+    <img src="#" alt="">
+    <div id="foto-knoppen">
+        <div class="container-fluid">
+            <div class="col-xs-6 no"><i class="fa fa-times"></i></div>
+            <div class="col-xs-6 yes"><i class="fa fa-check"></i></div>
+
+        </div>
+    </div>
+</div>
+
+  <div id="top_menu" class="navbar-fixed-top">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-xs-4">
+                  <img src="/img/logo_sm.svg" class="img-responsive logo" alt="">
+              </div>
+              <div class="col-xs-offset-4 col-xs-4">
+                <button id="cam" type="button" name="button"><i class="fa fa-camera"></i></button>
+                <input onchange="readURL(this);" class="hidden-input" type="file" accept="video/*capture=camcorder"></input>
+              </div>
+          </div>
+      </div>
+  </div>
+
+      <div id="bottom_nav" class="container">
+          <div class="row">
+              <div class="col-xs-4">
+                  <a href="/user/index.html" class="i_wrapper active"><i class="fa fa-home"></i></a>
+              </div>
+              <div class="col-xs-4">
+                  <a href="/user/list.html" class="i_wrapper "><i class="fa fa-list-ul"></i></a>
+              </div>
+              <div class="col-xs-4">
+                  <a href="/user/profiel.html"  class="i_wrapper "><i class="fa fa-user"></i></a>
+              </div>
+          </div>
+      </div>
+    
+
+    <div id="content">
+        <div id="intro_home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <h3>Weten waar <br/> iets leuks is?</h3>
+                        <p>Bekijk stories en vind jou volgende sturen</p>
+                        <button class="btn-100 btn-line" type="button" name="button"><h5>
+             Bekijk stories
+           </h5></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="display: inline-block" id="middle_home">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h5>Beschikbare Gidsen</h5>
+                    <a>
+                        <p>Alle gidsen</p>
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <img src="/img/login_bg.png" class="rounded" alt="">
+                </div>
+                <div class="col-xs-4">
+                    <img src="/img/login_bg.png" class="rounded" alt="">
+                </div>
+                <div class="col-xs-4">
+                    <img src="/img/login_bg.png" class="rounded" alt="">
+                </div>
+                <div class="col-xs-4">
+                    <img src="/img/login_bg.png" class="rounded" alt="">
+                </div>
+                <div class="col-xs-4">
+                    <img src="/img/login_bg.png" class="rounded" alt="">
+                </div>
+                <div class="col-xs-4">
+                    <img src="/img/login_bg.png" class="rounded" alt="">
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br> asfasdfs
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<!-- <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<script>
+  $(document).on("mobileinit", function(){
+      $.mobile.ajaxEnabled=false;
+      $.mobile.loadingMessage = false;
+  });
+  </script>
+
+
+
+<script type="text/javascript" src="/js/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+
+        <script type="text/javascript">
+            $('#logout').click(function() {
+                localStorage.removeItem('token');
+                window.location.href = "/";
+            });
+            $('#cam').click(function() {
+                $('.hidden-input').click();
+            });
+            $('.hidden-input').change(function() {
+                $('body, html').css('overflow', 'hidden');
+                $('#content, #top_menu, #bottom_nav').fadeOut(300);
+                $('#foto-previeuw').fadeIn(300);
+            });
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#foto-previeuw img')
+                            .attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
+
+        
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+#top_menu{
+  background-color: $lightgrey;
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  .logo{
+    width: 75%;
+    display: inline-block;
+    vertical-align: center;
+  }
+  button{
+    float: right;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+  }
+  .fa.fa-camera{
+    line-height: 50px;
+    text-align: right;
+    font-size: 25px;
+  }
+  .hidden-input{
+     visibility: hidden;
+    //  display: none;
+    position: absolute;
+    
+  }
+}
+
+
+#bottom_nav{
+
+  bottom: 0;
+  z-index: 2;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  background-color: #eee;
+  .i_wrapper{
+    width: 100%;
+    display: block;
+    height: 50px;
+    color: black;
+    &.active{
+      color: $green;
+    }
+    i{
+      width: 100%;
+      text-align: center;
+      font-size: 25px;
+      line-height: 50px;
+    }
+  }
+}

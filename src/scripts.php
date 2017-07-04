@@ -9,5 +9,7 @@
   });
   </script>
 
+
+
 <script type="text/javascript" src="/js/jquery.touchSwipe.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>

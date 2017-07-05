@@ -1,0 +1,39 @@
+#profiel{
+  margin-bottom: 50px;
+  .heading{
+    background-color: $green;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    img{
+      border-radius: 50%;
+    }
+    p, h5{
+      color: white;
+      margin-bottom: 0px;
+    }
+  }
+  .newFoto{
+    border: 2px solid $green;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    i{
+      font-size: 30px;
+    }
+  }
+  .newWW{
+    margin-top: 25px;
+  }
+  .buttons{
+    button{
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+    #gids, #kortingen{
+      background-color: transparent;
+      color: $green;
+      border: 3px solid $green;
+    }
+  }
+
+}

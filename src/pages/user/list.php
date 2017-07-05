@@ -1,4 +1,4 @@
-<?php
+ <?php
 $title = 'Home';
 $active = 'list';
 include '../../header.php';
@@ -21,10 +21,11 @@ include '../../nav.php'; ?>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="col-xs-3">
-                            <img src="" alt="">
+                            <img src="/img/pf-img.jpg" class="img-responsive" alt="">
                         </div>
                         <div class="col-xs-9">
                             <h5>John Doe</h5>
+                            <p>Geschiedenis, Sport</p>
                         </div>
                     </div>
                 </div>

@@ -1,17 +1,44 @@
 body{
   overflow-x: hidden;
+
+}
+.swipe{
+  height: 100%;
+  position: absolute;
+  width: 100%;
+.right, .left{
+
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  position: relative;
+  z-index: 3;
+}
+.left{
+  background-color: rgba(0,0,0,0.01);
+  float: left;
+}
+.right{
+  background-color: rgba(0,0,0,0.01);
+  float: left;
+}
 }
 #stories{
+  height: 100%;
     img{
       height: 100vh;
       float: left;
       object-fit: cover;
+    }
+    .story{
+
     }
 }
 
 #instructies{
   height: 100%;
   width: 300%;
+  top: 0;
   background-color: #eee;
   .instrucie{
     width: 33%;
@@ -20,6 +47,7 @@ body{
     color: $green;
     .inner{
       text-align: center;
+      height: 50%;
       position: relative;
       width: 75%;
       left: 50%;

@@ -10742,34 +10742,6 @@ input:focus {
       font-size: 25px;
       line-height: 50px; }
 
-#profiel {
-  margin-bottom: 50px; }
-  #profiel .heading {
-    background-color: #188B43;
-    padding-top: 20px;
-    padding-bottom: 20px; }
-    #profiel .heading img {
-      border-radius: 50%; }
-    #profiel .heading p, #profiel .heading h5 {
-      color: white;
-      margin-bottom: 0px; }
-  #profiel .newFoto {
-    border: 2px solid #188B43;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center; }
-    #profiel .newFoto i {
-      font-size: 30px; }
-  #profiel .newWW {
-    margin-top: 25px; }
-  #profiel .buttons button {
-    margin-bottom: 15px;
-    font-size: 22px; }
-  #profiel .buttons #gids, #profiel .buttons #kortingen {
-    background-color: transparent;
-    color: #188B43;
-    border: 3px solid #188B43; }
-
 #search {
   padding-top: 25px;
   padding-bottom: 25px; }

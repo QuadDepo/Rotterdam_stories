@@ -4,7 +4,7 @@ $active = 'home';
 include '../../header.php';
 include '../../auth.php';
 include '../../nav.php'; ?>
-    
+
 
     <div id="content">
         <div id="intro_home">
@@ -14,9 +14,7 @@ include '../../nav.php'; ?>
 
                         <h3>Weten waar <br/> iets leuks is?</h3>
                         <p>Bekijk stories en vind jou volgende sturen</p>
-                        <button class="btn-100 btn-line" type="button" name="button"><h5>
-             Bekijk stories
-           </h5></button>
+                        <button onclick="window.location.href = '/stories'" class="btn-100 btn-line"><h5>Bekijk stories</h5></button>
 
                     </div>
                 </div>
@@ -105,6 +103,39 @@ include '../../nav.php'; ?>
                     reader.readAsDataURL(input.files[0]);
                 }
             }
+            $('.yes').click(function() {
+                var bannerImage = $('#foto-previeuw img').attr('src');
+                // console.log(bannerImage);
+                var lstore = JSON.parse(localStorage.getItem('stories'));
+                if (lstore === null) {
+                  lstore = [];
+                  var newFoto = {
+                    img: bannerImage
+                  }
+                    lstore.push(newFoto);
+                  localStorage.setItem("stories", JSON.stringify(lstore));
+                  console.log(JSON.parse(localStorage.getItem('stories')));
+                }else{
+                  var newFoto = {
+                    img: bannerImage
+                  }
+                    lstore.push(newFoto);
+                  localStorage.setItem("stories", JSON.stringify(lstore));
+                  console.log(JSON.parse(localStorage.getItem('stories')));
+                }
+
+                $('.hidden-input').val('');
+                $('body, html').css('overflow', 'scroll');
+                $('#content, #top_menu, #bottom_nav').fadeIn(300);
+                $('#foto-previeuw').fadeOut(300);
+                window.location.href = "/stories";
+            })
+            $('.no').click(function(){
+                $('.hidden-input').val('');
+                $('body, html').css('overflow', 'scroll');
+                $('#content, #top_menu, #bottom_nav').fadeIn(300);
+                $('#foto-previeuw').fadeOut(300);
+            })
         </script>
 
         <?php

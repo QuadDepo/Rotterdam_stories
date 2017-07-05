@@ -10659,7 +10659,10 @@ img.rounded {
   color: white; }
 
 .btn-100 {
-  width: 100%; }
+  width: 100%;
+  color: white;
+  text-align: center;
+  cursor: pointer; }
   .btn-100.btn-line {
     background-color: transparent;
     border: 1px #ffffff solid;
@@ -10752,3 +10755,34 @@ input:focus {
     position: absolute;
     top: 7.5px;
     right: 30px; }
+
+body {
+  overflow-x: hidden; }
+
+#stories img {
+  height: 100vh;
+  float: left;
+  object-fit: cover; }
+
+#instructies {
+  height: 100%;
+  width: 300%;
+  background-color: #eee; }
+  #instructies .instrucie {
+    width: 33%;
+    height: 100%;
+    display: inline-block;
+    color: #188B43; }
+    #instructies .instrucie .inner {
+      text-align: center;
+      position: relative;
+      width: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 50%; }
+    #instructies .instrucie i {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      font-size: 25px;
+      transform: translateX(-50%); }

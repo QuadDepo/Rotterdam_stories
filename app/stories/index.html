@@ -36,31 +36,98 @@ localStorage.setItem("imgData", imgData); -->
 
 <script type="text/javascript" src="/js/jquery.touchSwipe.min.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
+    <div id="instructies">
+      <div class="instrucie">
+        <div class="inner">
+          <h2>Live Events</h2>
+          <p>Door heel rotterdam</p>
+
+        </div>
+        <i class="fa fa-arrow-right"></i>
+      </div>
+      <div class="instrucie">
+        <div class="inner"><h2>Bekijk waar iets leuks is</h2>
+        <p>Door heel rotterdam</p>
+
+      </div>
+      <i class="fa fa-arrow-right"></i>
+      </div>
+      <div class="instrucie">
+        <div class="inner">3</div>
+      </div>
+    </div>
+    <div id="stories">
+
+    </div>
+
+
 
         <script type="text/javascript">
-            $('#logout').click(function() {
-                localStorage.removeItem('token');
-                window.location.href = "/";
-            });
-            $('#cam').click(function() {
-                $('.hidden-input').click();
-            });
-            $('.hidden-input').change(function() {
-                $('body, html').css('overflow', 'hidden');
-                $('#content, #top_menu, #bottom_nav').fadeOut(300);
-                $('#foto-previeuw').fadeIn(300);
-            });
+                var lstore = JSON.parse(localStorage.getItem('stories'));
+                console.log(lstore.length + '00%');
+                var imgWidth = 100 / lstore.length;
+                imgWidth = parseInt(imgWidth);
 
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#foto-previeuw img')
-                            .attr('src', e.target.result);
-                    };
-                    reader.readAsDataURL(input.files[0]);
+                $('#stories').css({
+                  width: lstore.length + '00%'
+                });
+
+
+                console.log(lstore);
+                for (var i = 0; i < lstore.length; i++) {
+                  console.log(lstore[i]);
+                  $('#stories').append(`
+
+                    <img src=${lstore[i].img} class="story" />
+
+                    `)
                 }
-            }
+
+                $('.story').css({
+                    width: imgWidth +'%'
+                });
+
+                function pos_to_neg(num)
+                    {
+                    return -Math.abs(num);
+                    }
+
+
+                $('i').click(function(){
+                  var instructiesMargin = $('#instructies').css('margin-left');
+                  bodywidth = pos_to_neg($('body').width());
+                  var maxLength = 3 * $('body').width();
+                  var instructiesMargin = (parseInt(instructiesMargin) + bodywidth);
+                  if (instructiesMargin + maxLength === 0) {
+
+                  }else{
+                    $('#instructies').animate({
+                      marginLeft: instructiesMargin
+                    })
+                  }
+
+                });
+
+                $('img').click(function(){
+                    var fotos = JSON.parse(localStorage.getItem('stories'));
+                    marginL = $('#stories').css('margin-left');
+                    marginL = parseInt(marginL, 10);
+                    fotos = fotos.length;
+                    var maxLength = fotos * $('body').width() - $('body').width();
+                    console.log(marginL + maxLength);
+                    if (marginL + maxLength === 0) {
+                      window.location.href = "/";
+                      console.log('laaste foto');
+                    }else{
+                      bodywidth = pos_to_neg($('body').width());
+                      console.log(bodywidth);
+                      marginL = (parseInt(marginL) + bodywidth);
+                      console.log(marginL);
+                      $('#stories').animate({
+                        marginLeft: marginL
+                      })
+                    }
+                })
         </script>
 
         

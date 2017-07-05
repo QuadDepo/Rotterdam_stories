@@ -1,0 +1,38 @@
+body{
+  overflow-x: hidden;
+}
+#stories{
+    img{
+      height: 100vh;
+      float: left;
+      object-fit: cover;
+    }
+}
+
+#instructies{
+  height: 100%;
+  width: 300%;
+  background-color: #eee;
+  .instrucie{
+    width: 33%;
+    height: 100%;
+    display: inline-block;
+    color: $green;
+    .inner{
+      text-align: center;
+      position: relative;
+      width: 75%;
+      left: 50%;
+      transform:translate(-50%, -50%);
+      top: 50%;
+
+    }
+    i{
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      font-size: 25px;
+      transform:translateX(-50%);
+    }
+  }
+}

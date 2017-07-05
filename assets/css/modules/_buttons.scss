@@ -11,6 +11,9 @@
 
 .btn-100{
   width: 100%;
+  color: white;
+  text-align: center;
+  cursor: pointer;
   &.btn-line{
     background-color: transparent;
     border: 1px $white solid;

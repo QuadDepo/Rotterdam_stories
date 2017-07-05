@@ -126,24 +126,38 @@
                     reader.readAsDataURL(input.files[0]);
                 }
             }
-
-            function getBase64Image(img) {
-                var canvas = document.createElement("canvas");
-                canvas.width = img.width;
-                canvas.height = img.height;
-
-                var ctx = canvas.getContext("2d");
-                ctx.drawImage(img, 0, 0);
-
-                var dataURL = canvas.toDataURL("image/png");
-
-                return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-            }
-
             $('.yes').click(function() {
-                bannerImage = $('#foto-previeuw img');
-                imgData = getBase64Image(bannerImage);
-                localStorage.setItem("imgData", imgData);
+                var bannerImage = $('#foto-previeuw img').attr('src');
+                // console.log(bannerImage);
+                var lstore = JSON.parse(localStorage.getItem('stories'));
+                if (lstore === null) {
+                  lstore = [];
+                  var newFoto = {
+                    img: bannerImage
+                  }
+                    lstore.push(newFoto);
+                  localStorage.setItem("stories", JSON.stringify(lstore));
+                  console.log(JSON.parse(localStorage.getItem('stories')));
+                }else{
+                  var newFoto = {
+                    img: bannerImage
+                  }
+                    lstore.push(newFoto);
+                  localStorage.setItem("stories", JSON.stringify(lstore));
+                  console.log(JSON.parse(localStorage.getItem('stories')));
+                }
+
+                $('.hidden-input').val('');
+                $('body, html').css('overflow', 'scroll');
+                $('#content, #top_menu, #bottom_nav').fadeIn(300);
+                $('#foto-previeuw').fadeOut(300);
+                window.location.href = "/stories";
+            })
+            $('.no').click(function(){
+                $('.hidden-input').val('');
+                $('body, html').css('overflow', 'scroll');
+                $('#content, #top_menu, #bottom_nav').fadeIn(300);
+                $('#foto-previeuw').fadeOut(300);
             })
         </script>
 

@@ -15,3 +15,33 @@
     right: 30px;
   }
 }
+
+#filterscreen{
+  top: 0;
+  display: none;
+  z-index: 5;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255,255,255,1);
+  #heading{
+    background-color: $green;
+    padding-bottom: 50px;
+    color: white;
+    letter-spacing: 1.1px;
+  }
+  #close{
+    margin-top: 10px;
+    font-size: 30px;
+  }
+  .marginTopBig{
+    margin-top: 10px;
+  }
+  .marginTopSmall{
+    margin-top: 25px;
+  }
+  button{
+    position: absolute;
+    bottom: 0;
+  }
+}

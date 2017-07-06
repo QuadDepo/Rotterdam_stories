@@ -24,7 +24,7 @@ include '../../nav.php'; ?>
             <div class="row">
                 <div class="col-xs-12">
                     <h5>Beschikbare Gidsen</h5>
-                    <a>
+                    <a href="list.html">
                         <p>Alle gidsen</p>
                     </a>
                 </div>

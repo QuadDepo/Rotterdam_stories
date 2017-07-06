@@ -13,24 +13,80 @@ include '../../nav.php'; ?>
                         <i class="fa fa-search"></i>
                     </div>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-2 filter">
                     <i class="fa fa-sliders"></i>
                 </div>
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="col-xs-3">
-                            <img src="/img/pf-img.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="col-xs-9">
-                            <h5>John Doe</h5>
-                            <p>Geschiedenis, Sport</p>
-                        </div>
-                    </div>
+                <div class="row" id="lijstGidsen">
+
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="filterscreen">
+      <div id="heading">
+        <div class="container">
+          <div class="row">
+            <div id="close" class="text-right col-xs-12">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="col-xs-12 marginTopBig">
+              <h3>Weten wat je wilt?</h3>
+              <p>Filter de gidsen op jou voorkeur</p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 marginTopSmall">
+              <h5>Intresseses</h5>
+            </div>
+            <div class="col-xs-4">
+              <div class="checkbox">
+                      <input id="Architectuur" type="checkbox">
+                      <label for="Architectuur">
+                          Architectuur
+                      </label>
+                  </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="checkbox">
+                      <input id="Geschiedenis" type="checkbox">
+                      <label for="Geschiedenis">
+                          Geschiedenis
+                      </label>
+                  </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="checkbox">
+                      <input id="Sport" type="checkbox">
+                      <label for="Sport">
+                          Sport
+                      </label>
+                  </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="checkbox">
+                      <input id="Haven" type="checkbox">
+                      <label for="Haven">
+                          Haven/Boten
+                      </label>
+                  </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="checkbox">
+                      <input id="Cultuur" type="checkbox">
+                      <label for="Cultuur">
+                          Cultuur
+                      </label>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <button id="filterBtn" type="button" name="button" class="btn-green btn-big">Filter</button>
     </div>
 
 
@@ -43,6 +99,87 @@ include '../../nav.php'; ?>
  ?>
 
         <script type="text/javascript">
+
+
+            $('.filter').click(function(){
+              $('#top_menu').fadeOut();
+              $('#filterscreen').fadeIn();
+            })
+            $('#close').click(function(){
+              $('#top_menu').fadeIn();
+              $('#filterscreen').fadeOut();
+            })
+
+
+              var gidsenArray = [
+                {
+                  name: 'Ryan George',
+                  intr: 'Cultuur, Sport'
+                },
+                {
+                  name: 'eimand',
+                  intr: 'Haven, Haven'
+                }
+              ]
+
+              for (var i = 0; i < gidsenArray.length; i++) {
+                $('#lijstGidsen').append(`
+                  <div class="col-xs-12">
+                      <div class="col-xs-3">
+                          <img src="/img/pf-img.jpg" class="img-responsive" alt="">
+                      </div>
+                      <div class="col-xs-9">
+                          <h5>${gidsenArray[i].name}</h5>
+                          <p class="intr">${gidsenArray[i].intr}</p>
+                      </div>
+                  </div>
+                  `)
+                  intr = '';
+              }
+
+            $('#filterBtn').click(function(){
+              var newGidsen = gidsenArray;
+              console.log('///////// new giden');
+              console.log(newGidsen);
+              console.log(gidsenArray);
+              var allCheckboxes=$('[type=checkbox]');
+              var checked = []
+              $.each(allCheckboxes, function(index, value){
+                var id = '#' + $(this).attr('id');
+                if ($(id).is(':checked')) {
+                  console.log(id + '   checked');
+                  checked.push(id.substring(1));
+                }
+
+              })
+
+              console.log(checked);
+
+              for (var i = 0; i < gidsenArray.length; i++) {
+                    var zichtbaar = false;
+
+                    for (var j = 0; j < checked.length; j++) {
+                      // console.log(gidsenArray[i].intr.indexOf(checked[i]) + ' ' + gidsenArray[i].name );
+                      if (gidsenArray[i].intr.indexOf(checked[j]) >= 0) {
+                          zichtbaar = true;
+                      }
+                      console.log(zichtbaar);
+                  }
+                    if (zichtbaar) {
+                      console.log(newGidsen);
+                      newGidsen.splice([i],1);
+                      console.log(newGidsen);
+                    }
+                    zichtbaar = false;
+              }
+
+
+            });
+
+
+
+
+
             $('#logout').click(function() {
                 localStorage.removeItem('token');
                 window.location.href = "/";

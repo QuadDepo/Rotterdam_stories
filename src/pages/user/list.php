@@ -9,7 +9,7 @@ include '../../nav.php'; ?>
             <div class="container">
                 <div class="col-xs-10">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Zoek uw gids">
+                        <input id="searchInput" type="text" class="form-control" placeholder="Zoek uw gids">
                         <i class="fa fa-search"></i>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ include '../../nav.php'; ?>
             </div>
             <div class="col-xs-4">
               <div class="checkbox">
-                      <input id="Architectuur" type="checkbox">
+                      <input id="Architectuur" type="checkbox" checked>
                       <label for="Architectuur">
                           Architectuur
                       </label>
@@ -54,7 +54,7 @@ include '../../nav.php'; ?>
             </div>
             <div class="col-xs-4">
               <div class="checkbox">
-                      <input id="Geschiedenis" type="checkbox">
+                      <input id="Geschiedenis" type="checkbox" checked>
                       <label for="Geschiedenis">
                           Geschiedenis
                       </label>
@@ -62,7 +62,7 @@ include '../../nav.php'; ?>
             </div>
             <div class="col-xs-4">
               <div class="checkbox">
-                      <input id="Sport" type="checkbox">
+                      <input id="Sport" type="checkbox" checked>
                       <label for="Sport">
                           Sport
                       </label>
@@ -70,7 +70,7 @@ include '../../nav.php'; ?>
             </div>
             <div class="col-xs-4">
               <div class="checkbox">
-                      <input id="Haven" type="checkbox">
+                      <input id="Haven" type="checkbox" checked>
                       <label for="Haven">
                           Haven/Boten
                       </label>
@@ -78,7 +78,7 @@ include '../../nav.php'; ?>
             </div>
             <div class="col-xs-4">
               <div class="checkbox">
-                      <input id="Cultuur" type="checkbox">
+                      <input id="Cultuur" type="checkbox" checked>
                       <label for="Cultuur">
                           Cultuur
                       </label>
@@ -115,12 +115,62 @@ include '../../nav.php'; ?>
                 {
                   name: 'Ryan George',
                   intr: 'Cultuur, Sport',
-                  show: true
+                  show: true,
+                  online: true
                 },
                 {
                   name: 'eimand',
-                  intr: 'Haven, Haven',
-                  show: true
+                  intr: 'Haven/Boten, Sport',
+                  show: true,
+                  online: true
+                },
+                {
+                  name: 'eimand',
+                  intr: 'Geschiedenis, Architectuur',
+                  show: true,
+                  online: true
+                },
+                {
+                  name: 'eimand',
+                  intr: 'Architectuur, Sport',
+                  show: true,
+                  online: true
+                },
+                {
+                  name: 'eimand',
+                  intr: 'Sport, Haven/Boten',
+                  show: true,
+                  online: true
+                },
+                {
+                  name: 'eimand',
+                  intr: 'Cultuur, Haven/Boten',
+                  show: true,
+                  online: true
+                },
+                {
+                  name: 'eimand',
+                  intr: 'Sport, Haven/Boten',
+                  show: true,
+                  online: true
+                },
+                {
+                  name: 'eimand',
+                  intr: 'Sport, Haven/Boten',
+                  show: true,
+                  online: false
+                },
+                {
+                  name: 'eimand',
+                  intr: 'Sport, Haven/Boten',
+                  show: true,
+                  online: false
+                },
+                {
+                  name: 'eimand',
+                  intr: 'Architectuur',
+                  show: true,
+                  online: true
                 }
               ]
               function makeList(){
@@ -128,24 +178,45 @@ include '../../nav.php'; ?>
               for (var i = 0; i < gidsenArray.length; i++) {
                 if (gidsenArray[i].show) {
                   $('#lijstGidsen').append(`
-                    <div class="col-xs-12">
+
+                    <div class="col-xs-12 gistList-info">
+                    <a href="/gidsen">
                         <div class="col-xs-3">
                             <img src="/img/pf-img.jpg" class="img-responsive" alt="">
                         </div>
                         <div class="col-xs-9">
-                            <h5>${gidsenArray[i].name}</h5>
+                            <h5>${gidsenArray[i].name}</h5><span style="background-color: ${gidsenArray[i].online ? 'green' : 'red'}"></span>
                             <p class="intr">${gidsenArray[i].intr}</p>
                         </div>
+                        </a>
                     </div>
+
                     `)
                 }
               }
             }
             makeList();
-
+            $('#searchInput').on('keyup',function(){
+              var allCheckboxes=$('[type=checkbox]');
+              $.each(allCheckboxes, function(index, value){
+                var id = '#' + $(this).attr('id');
+                $(id).prop('checked', true);
+              })
+              console.log($('#searchInput').val());
+              for (var i = 0; i < gidsenArray.length; i++) {
+                if (gidsenArray[i].name.indexOf($('#searchInput').val()) != -1) {
+                  console.log(gidsenArray[i].name + ' ' + $('#searchInput').val());
+                  gidsenArray[i].show = true;
+                  makeList();
+                }else{
+                  gidsenArray[i].show = false;
+                  makeList();
+                }
+              }
+            })
             $('#filterBtn').click(function(){
               var allCheckboxes=$('[type=checkbox]');
-              var checked = []
+              var checked = [];
               $.each(allCheckboxes, function(index, value){
                 var id = '#' + $(this).attr('id');
                 if ($(id).is(':checked')) {
@@ -177,6 +248,8 @@ include '../../nav.php'; ?>
                     zichtbaar = false;
               }
 
+              $('#top_menu').fadeIn();
+              $('#filterscreen').fadeOut();
 
             });
 

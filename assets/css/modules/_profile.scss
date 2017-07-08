@@ -37,3 +37,56 @@
   }
 
 }
+
+#heading{
+  .heading-bg{
+  background-image: url(/img/background-gids.jpg);
+  background-size: cover;
+  height: 125px;
+  }
+  .terug{
+    color: white;
+  }
+  img{
+    border-radius: 50%;
+    border: white 5px solid;
+    margin-top: -50px;
+  }
+  h5{
+    display: inline-block;
+  }
+  .online{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-color: green;
+  }
+  .col-xs-7{
+    text-align: right;
+  }
+}
+
+#gids-body{
+  .menu{
+    margin-top: 30px;
+    background-color: #eee;
+    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+  }
+  .info{
+
+    width: 200%;
+    white-space: nowrap;
+    .info-inner{
+      width: 50%;
+      display: inline-block;
+       white-space: normal;
+    }
+  }
+}
+#bestelGids{
+  position: absolute;
+  bottom: 0;
+}

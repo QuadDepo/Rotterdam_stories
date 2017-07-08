@@ -15,7 +15,34 @@
     right: 30px;
   }
 }
-
+#lijstGidsen{
+  margin-bottom: 50px;
+}
+.gistList-info{
+  padding: 20px;
+  p{
+    margin: 0px;
+    color: #b8b8b8;
+  }
+  h5{
+      margin: 0px;
+      color: black;
+      display: inline-block;
+  }
+  span{
+    height: 15px;
+    width: 15px;
+    margin-left: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  &:nth-child(even){
+    background-color: #eee;
+  }
+  img{
+    border-radius: 50%;
+  }
+}
 #filterscreen{
   top: 0;
   display: none;

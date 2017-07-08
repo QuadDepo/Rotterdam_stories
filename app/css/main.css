@@ -10977,6 +10977,51 @@ input:focus {
     color: #188B43;
     border: 3px solid #188B43; }
 
+#heading .heading-bg {
+  background-image: url(/img/background-gids.jpg);
+  background-size: cover;
+  height: 125px; }
+
+#heading .terug {
+  color: white; }
+
+#heading img {
+  border-radius: 50%;
+  border: white 5px solid;
+  margin-top: -50px; }
+
+#heading h5 {
+  display: inline-block; }
+
+#heading .online {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-color: green; }
+
+#heading .col-xs-7 {
+  text-align: right; }
+
+#gids-body .menu {
+  margin-top: 30px;
+  background-color: #eee;
+  padding: 10px;
+  font-size: 25px;
+  text-align: center; }
+
+#gids-body .info {
+  width: 200%;
+  white-space: nowrap; }
+  #gids-body .info .info-inner {
+    width: 50%;
+    display: inline-block;
+    white-space: normal; }
+
+#bestelGids {
+  position: absolute;
+  bottom: 0; }
+
 #search {
   padding-top: 25px;
   padding-bottom: 25px; }
@@ -10990,6 +11035,29 @@ input:focus {
     position: absolute;
     top: 7.5px;
     right: 30px; }
+
+#lijstGidsen {
+  margin-bottom: 50px; }
+
+.gistList-info {
+  padding: 20px; }
+  .gistList-info p {
+    margin: 0px;
+    color: #b8b8b8; }
+  .gistList-info h5 {
+    margin: 0px;
+    color: black;
+    display: inline-block; }
+  .gistList-info span {
+    height: 15px;
+    width: 15px;
+    margin-left: 10px;
+    border-radius: 50%;
+    display: inline-block; }
+  .gistList-info:nth-child(even) {
+    background-color: #eee; }
+  .gistList-info img {
+    border-radius: 50%; }
 
 #filterscreen {
   top: 0;

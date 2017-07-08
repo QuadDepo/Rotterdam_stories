@@ -175,34 +175,36 @@
               var gidsenArray = [
                 {
                   name: 'Ryan George',
-                  intr: 'Cultuur, Sport'
+                  intr: 'Cultuur, Sport',
+                  show: true
                 },
                 {
                   name: 'eimand',
-                  intr: 'Haven, Haven'
+                  intr: 'Haven, Haven',
+                  show: true
                 }
               ]
-
+              function makeList(){
+                $('#lijstGidsen').empty();
               for (var i = 0; i < gidsenArray.length; i++) {
-                $('#lijstGidsen').append(`
-                  <div class="col-xs-12">
-                      <div class="col-xs-3">
-                          <img src="/img/pf-img.jpg" class="img-responsive" alt="">
-                      </div>
-                      <div class="col-xs-9">
-                          <h5>${gidsenArray[i].name}</h5>
-                          <p class="intr">${gidsenArray[i].intr}</p>
-                      </div>
-                  </div>
-                  `)
-                  intr = '';
+                if (gidsenArray[i].show) {
+                  $('#lijstGidsen').append(`
+                    <div class="col-xs-12">
+                        <div class="col-xs-3">
+                            <img src="/img/pf-img.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-xs-9">
+                            <h5>${gidsenArray[i].name}</h5>
+                            <p class="intr">${gidsenArray[i].intr}</p>
+                        </div>
+                    </div>
+                    `)
+                }
               }
-
+            }
+            makeList();
+              var newGidsen = gidsenArray.splice();
             $('#filterBtn').click(function(){
-              var newGidsen = gidsenArray;
-              console.log('///////// new giden');
-              console.log(newGidsen);
-              console.log(gidsenArray);
               var allCheckboxes=$('[type=checkbox]');
               var checked = []
               $.each(allCheckboxes, function(index, value){
@@ -217,8 +219,7 @@
               console.log(checked);
 
               for (var i = 0; i < gidsenArray.length; i++) {
-                    var zichtbaar = false;
-
+                var zichtbaar;
                     for (var j = 0; j < checked.length; j++) {
                       // console.log(gidsenArray[i].intr.indexOf(checked[i]) + ' ' + gidsenArray[i].name );
                       if (gidsenArray[i].intr.indexOf(checked[j]) >= 0) {
@@ -226,10 +227,13 @@
                       }
                       console.log(zichtbaar);
                   }
-                    if (zichtbaar) {
-                      console.log(newGidsen);
-                      newGidsen.splice([i],1);
-                      console.log(newGidsen);
+                    if (!zichtbaar) {
+                      gidsenArray[i].show = false;
+                      makeList();
+                    }else{
+                      gidsenArray[i].show = true;
+                      console.log(gidsenArray);
+                      makeList();
                     }
                     zichtbaar = false;
               }

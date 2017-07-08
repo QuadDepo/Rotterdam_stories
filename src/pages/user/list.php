@@ -142,7 +142,7 @@ include '../../nav.php'; ?>
               }
             }
             makeList();
-              var newGidsen = gidsenArray.splice();
+
             $('#filterBtn').click(function(){
               var allCheckboxes=$('[type=checkbox]');
               var checked = []

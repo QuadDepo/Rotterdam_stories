@@ -41,8 +41,8 @@ include '../../auth.php';
     <div class="info-inner">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12">
-            asfdasdfasdf
+          <div class="col-xs-12 comment">
+            <h5>Iemand</h5><span><i class="fa fa-thumbs-up"></i></span>
           </div>
         </div>
       </div>
@@ -58,6 +58,7 @@ include '../../auth.php';
   ?>
 
 <script type="text/javascript">
+
     $('.comments-gids').click(function(){
       console.log($('.info').css('margin-left'));
       if($('.info').css('margin-left') == '0px'){

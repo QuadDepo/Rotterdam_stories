@@ -1,4 +1,4 @@
- <?php
+     <?php
 $title = 'Home';
 $active = 'list';
 include '../../header.php';

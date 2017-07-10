@@ -124,6 +124,45 @@ include '../../nav.php'; ?>
             $('.naam').html(firstname);
             gb.val(user.gb);
             email.val(user.email);
+            var error = false;
+            var message;
+            $('#opslaan').click(function(){
+              if (naam.val() == '' || email.val() == '') {
+                error = true;
+                if (naam.val() == '') {
+                  message += 'Naam niet ingevult';
+                }else if (email.val() == '') {
+                  message += 'Email niet ingevult';
+                }
+                if ($('#oud_ww').val() != '') {
+                  if ($('#oud_ww').val() == user.wachtwoord) {
+                    if ($('#nieuw_ww').val() == $('#nieuw_ww2').val()) {
+                      user.wachtwoord = $('#nieuw_ww').val();
+                      console.log(user.wachtwoord);
+                      console.log('nieuw wactyhwoord is ' + $('#nieuw_ww').val() );
+                    }else{
+                      console.log('ww niet het zelfde');
+                    }
+                  }else{
+                    console.log('ww niet het zelfde');
+                  }
+                }
+              }else{
+                if (naam !== user.naam) {
+                  user.naam = naam;
+                }else if (email !== user.email) {
+                  user.email = email;
+                }else if ($('#oud_ww').val() !== '') {
+                  if ($('#oud_ww').val() === user.wachtwoord) {
+                    if ($('#nieuw_ww').val() === $('#nieuw_ww2').val()) {
+                      user.wachtwoord = $('#nieuw_ww').val();
+                      console.log(user.wachtwoord);
+                      console.log('nieuw wactyhwoord is ' + $('#nieuw_ww').val() );
+                    }
+                  }
+                }
+            }
+            })
 
 
 

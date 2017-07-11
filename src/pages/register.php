@@ -30,9 +30,13 @@ include '../header.php';
       <div class="form-group">
         <input type="text" placeholder="Email" class="form-control rd-input" id="email">
       </div>
-      <div class="form-group">
-        <input type="text" class="form-control rd-input" readonly placeholder="Geboortedatum" id="datepicker">
-      </div>
+      <div class="form-group" style="margin-top: 10px">
+              <div class='input-group date' id='datetimepicker1'>
+                  <input placeholder="Datum" type='text' class="form-control rd-input" />
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+          </div>
       <div class="form-group">
         <input type="text" placeholder="Wachtwoord" class="form-control rd-input" id="wp">
       </div>
@@ -60,9 +64,9 @@ function validateEmail(email) {
 
 
 $("#registreer").click(function(){
-  var naam = $("#naam"), email = $("#email"), gb = $("#datepicker"), wp = $("#wp"), wp2 = $("#wp2");
+  var naam = $("#naam"), email = $("#email"), gb = $("#datetimepicker1"), wp = $("#wp"), wp2 = $("#wp2");
   var empty = false;
-
+  console.log(gb.data('date'));
   var message;
 
   if (naam.val() === '') {
@@ -75,7 +79,8 @@ $("#registreer").click(function(){
     empty = true;
     message = 'vul in alle velden';
   }
-  if (gb.val() === '') {
+  if (gb.data('date') === '') {
+    console.log('intput leeg');
     gb.css('border-color', 'red');
     empty = true;
     message = 'vul in alle velden';
@@ -108,7 +113,7 @@ $("#registreer").click(function(){
       console.log('succesfull');
       var account = {
         naam: naam.val(),
-        gb: gb.val(),
+        gb: gb.data('date'),
         email: email.val(),
         wachtwoord: wp.val(),
         punten: 0
@@ -141,20 +146,52 @@ $(".message").swipe( {
   },
   threshold:20,
 });
+$(function () {
+var bindDatePicker = function() {
+$(".date").datetimepicker({
+format:'YYYY-MM-DD',
+icons: {
+time: "fa fa-clock-o",
+date: "fa fa-calendar",
+up: "fa fa-arrow-up",
+down: "fa fa-arrow-down"
+}
+}).find('input:first').on("blur",function () {
+// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+// update the format if it's yyyy-mm-dd
+var date = parseDate($(this).val());
 
+if (! isValidDate(date)) {
+//create date based on momentjs (we have that)
+date = moment().format('YYYY-MM-DD');
+}
 
+$(this).val(date);
+});
+}
 
-		$(function(){
-			$('#datepicker').datepicker({
-				inline: true,
-				nextText: '&rarr;',
-				prevText: '&larr;',
-				showOtherMonths: true,
-				dateFormat: 'dd-mm-yy',
-				dayNamesMin: ['Z', 'M', 'D', 'W', 'D', 'V', 'S'],
+var isValidDate = function(value, format) {
+format = format || false;
+// lets parse the date to the best of our knowledge
+if (format) {
+value = parseDate(value);
+}
 
-			});
-		});
+var timestamp = Date.parse(value);
 
+return isNaN(timestamp) == false;
+}
+
+var parseDate = function(value) {
+var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+if (m)
+value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+
+return value;
+}
+
+bindDatePicker();
+});
 </script>
 <?php include '../footer.php'; ?>
+>

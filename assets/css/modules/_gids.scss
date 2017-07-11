@@ -1,0 +1,47 @@
+#body-betalen{
+  margin-top: 25px;
+
+}
+
+#betalen{
+  position: absolute;
+  bottom: 0;
+}
+
+.bootstrap-select{
+  width: 100% !important;
+  .btn-default{
+      border-color: $green;
+      border-width: 2px;
+  }
+
+}
+
+#wachten_header{
+  background-color: $green;
+  color: white;
+  .row{
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+#info-wachten{
+  p, h5{
+    margin: 0px;
+  }
+  h5{
+    margin-top: 10px;
+  }
+  img{
+    margin-top: -20px;
+    border: 2px solid white;
+  }
+}
+#start{
+  position: absolute;
+  bottom: 0;
+  &:focus, &:hover{
+    text-decoration: none;
+    color: white;
+  }
+}

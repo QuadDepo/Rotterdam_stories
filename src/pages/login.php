@@ -8,9 +8,7 @@ include '../header.php';
      window.location.href = "/user";
    }
  </script>
- <div id="message" class="message alert alert-danger">
-    <p></p>
- </div>
+
 
 <div id="login">
   <div class="container">

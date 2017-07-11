@@ -9,6 +9,12 @@
         <meta htp-equiv="X-UA-Compatible" content="ie=edge">
 
         <link rel="stylesheet" href="/css/main.css">
+
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+        <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css">
         <title>Registreer</title>
     </head>
     <body>
@@ -46,9 +52,13 @@ function goBack() {
       <div class="form-group">
         <input type="text" placeholder="Email" class="form-control rd-input" id="email">
       </div>
-      <div class="form-group">
-        <input type="text" class="form-control rd-input" readonly placeholder="Geboortedatum" id="datepicker">
-      </div>
+      <div class="form-group" style="margin-top: 10px">
+              <div class='input-group date' id='datetimepicker1'>
+                  <input placeholder="Datum" type='text' class="form-control rd-input" />
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+          </div>
       <div class="form-group">
         <input type="text" placeholder="Wachtwoord" class="form-control rd-input" id="wp">
       </div>
@@ -65,14 +75,13 @@ function goBack() {
   </div>
 </div>
 </div>
-<script type="text/javascript" src="/js/jquery.min.js"></script>
-<script type="text/javascript" src="/js/ui.js"></script>
-<script src="https://jquery-ui.googlecode.com/svn-history/r3982/trunk/ui/i18n/jquery.ui.datepicker-nl.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap-select.js"></script>
 <script type="text/javascript">
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
 <!-- <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
 <script>
   $(document).on("mobileinit", function(){
@@ -95,9 +104,9 @@ function validateEmail(email) {
 
 
 $("#registreer").click(function(){
-  var naam = $("#naam"), email = $("#email"), gb = $("#datepicker"), wp = $("#wp"), wp2 = $("#wp2");
+  var naam = $("#naam"), email = $("#email"), gb = $("#datetimepicker1"), wp = $("#wp"), wp2 = $("#wp2");
   var empty = false;
-
+  console.log(gb.data('date'));
   var message;
 
   if (naam.val() === '') {
@@ -110,7 +119,8 @@ $("#registreer").click(function(){
     empty = true;
     message = 'vul in alle velden';
   }
-  if (gb.val() === '') {
+  if (gb.data('date') === '') {
+    console.log('intput leeg');
     gb.css('border-color', 'red');
     empty = true;
     message = 'vul in alle velden';
@@ -143,7 +153,7 @@ $("#registreer").click(function(){
       console.log('succesfull');
       var account = {
         naam: naam.val(),
-        gb: gb.val(),
+        gb: gb.data('date'),
         email: email.val(),
         wachtwoord: wp.val(),
         punten: 0
@@ -176,22 +186,54 @@ $(".message").swipe( {
   },
   threshold:20,
 });
+$(function () {
+var bindDatePicker = function() {
+$(".date").datetimepicker({
+format:'YYYY-MM-DD',
+icons: {
+time: "fa fa-clock-o",
+date: "fa fa-calendar",
+up: "fa fa-arrow-up",
+down: "fa fa-arrow-down"
+}
+}).find('input:first').on("blur",function () {
+// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+// update the format if it's yyyy-mm-dd
+var date = parseDate($(this).val());
 
+if (! isValidDate(date)) {
+//create date based on momentjs (we have that)
+date = moment().format('YYYY-MM-DD');
+}
 
+$(this).val(date);
+});
+}
 
-		$(function(){
-			$('#datepicker').datepicker({
-				inline: true,
-				nextText: '&rarr;',
-				prevText: '&larr;',
-				showOtherMonths: true,
-				dateFormat: 'dd-mm-yy',
-				dayNamesMin: ['Z', 'M', 'D', 'W', 'D', 'V', 'S'],
+var isValidDate = function(value, format) {
+format = format || false;
+// lets parse the date to the best of our knowledge
+if (format) {
+value = parseDate(value);
+}
 
-			});
-		});
+var timestamp = Date.parse(value);
 
+return isNaN(timestamp) == false;
+}
+
+var parseDate = function(value) {
+var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+if (m)
+value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+
+return value;
+}
+
+bindDatePicker();
+});
 </script>
 
 </body>
 </html>
+>

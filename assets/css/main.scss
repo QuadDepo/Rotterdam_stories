@@ -9,7 +9,8 @@
 @import 'particals/colors';
 @import 'particals/mixins';
 @import 'particals/typo';
-
+@import 'modules/datepicker';
+@import 'modules/select';
 // Modules
 @import 'modules/base';
 @import 'modules/buttons';
@@ -22,4 +23,3 @@
 @import 'modules/search';
 @import 'modules/quiz';
 @import 'modules/stories';
-@import 'modules/datepicker';

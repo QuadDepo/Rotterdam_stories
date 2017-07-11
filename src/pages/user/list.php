@@ -113,61 +113,61 @@ include '../../nav.php'; ?>
 
               var gidsenArray = [
                 {
-                  name: 'Ryan George',
+                  name: 'Teun Diermen',
                   intr: 'Cultuur, Sport',
                   show: true,
                   online: true
                 },
                 {
-                  name: 'eimand',
+                  name: 'Moad Mijnals',
                   intr: 'Haven/Boten, Sport',
                   show: true,
                   online: true
                 },
                 {
-                  name: 'eimand',
+                  name: 'Piter Werkman',
                   intr: 'Geschiedenis, Architectuur',
                   show: true,
                   online: true
                 },
                 {
-                  name: 'eimand',
+                  name: 'Junaid Koemans',
                   intr: 'Architectuur, Sport',
                   show: true,
                   online: true
                 },
                 {
-                  name: 'eimand',
+                  name: 'Chantelle Kole',
                   intr: 'Sport, Haven/Boten',
                   show: true,
                   online: true
                 },
                 {
-                  name: 'eimand',
+                  name: 'Herman de Kreek',
                   intr: 'Cultuur, Haven/Boten',
                   show: true,
                   online: true
                 },
                 {
-                  name: 'eimand',
+                  name: 'Juliënne Gerritzen',
                   intr: 'Sport, Haven/Boten',
                   show: true,
                   online: true
                 },
                 {
-                  name: 'eimand',
+                  name: 'Nikie Nelis',
                   intr: 'Sport, Haven/Boten',
                   show: true,
                   online: false
                 },
                 {
-                  name: 'eimand',
+                  name: 'Lid de Giessen',
                   intr: 'Sport, Haven/Boten',
                   show: true,
                   online: false
                 },
                 {
-                  name: 'eimand',
+                  name: 'Medy Leusden',
                   intr: 'Architectuur',
                   show: true,
                   online: true

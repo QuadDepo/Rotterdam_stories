@@ -33,7 +33,13 @@ include '../../auth.php';
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            asdf
+            <h5 class="green">Over mij</h5>
+            <p>Mijn is Teun Dierman. Ik woon al mijn hele leven in Rotterdam. Ik zelf vind Rotterdam een speciale stad en zou u graag meer laten zien waar ik dat vind.</p>
+            <img src="/img/foto-gids2.jpg" class="img-responsive" alt="">
+            <h5 class="green">Mijn Tour</h5>
+            <p>Zelf weet ik veel over de geschiedenis, voetbal en culturen van/in Rotterdam. Zelf heb ik al een route uitgezet, maar wees vrij om dit aan te vullen of te veranderen.</p>
+            <img src="/img/winkels.jpg" class="img-responsive" alt="">
+            <p>In mijn tour lopen wij ook langs alle leuke winkels van Rotterdam waar u gerust mag shoppen en wat kan eten</p>
           </div>
         </div>
       </div>
@@ -43,6 +49,7 @@ include '../../auth.php';
         <div class="row">
           <div class="col-xs-12 comment">
             <h5>Iemand</h5><span><i class="fa fa-thumbs-up"></i></span>
+
           </div>
         </div>
       </div>
@@ -77,6 +84,9 @@ include '../../auth.php';
       }
 
     })
+    $('#bestelGids').click(function(){
+        window.location.href = "betalen.html";
+    });
 </script>
 
 

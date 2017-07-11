@@ -15,3 +15,12 @@ input:focus{
     color: black;
   }
 }
+
+
+input:-moz-read-only { /* For Firefox */
+    background-color: transparent;
+}
+
+input:read-only {
+    background-color: transparent;
+}

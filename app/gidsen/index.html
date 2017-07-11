@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="/css/main.css">
         <title><br />
-<b>Notice</b>:  Undefined variable: title in <b>/Users/george/Documents/Rotterdam_stories/src/header.php</b> on line <b>12</b><br />
+<b>Notice</b>:  Undefined variable: title in <b>/Users/George/Desktop/Rotterdam_stories/src/header.php</b> on line <b>12</b><br />
 </title>
     </head>
     <body>
@@ -28,7 +28,7 @@ function goBack() {
 }
 </script>
 <div style="cursor:pointer" onclick="goBack()" class="terug <br />
-<b>Notice</b>:  Undefined variable: terug_color in <b>/Users/george/Documents/Rotterdam_stories/src/terug.php</b> on line <b>6</b><br />
+<b>Notice</b>:  Undefined variable: terug_color in <b>/Users/George/Desktop/Rotterdam_stories/src/terug.php</b> on line <b>6</b><br />
 "><i class="fa fa-arrow-left"></i> Terug</div>
   <div class="heading-bg"></div>
   <div class="container">
@@ -56,7 +56,13 @@ function goBack() {
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            asdf
+            <h5 class="green">Over mij</h5>
+            <p>Mijn is Teun Dierman. Ik woon al mijn hele leven in Rotterdam. Ik zelf vind Rotterdam een speciale stad en zou u graag meer laten zien waar ik dat vind.</p>
+            <img src="/img/foto-gids2.jpg" class="img-responsive" alt="">
+            <h5 class="green">Mijn Tour</h5>
+            <p>Zelf weet ik veel over de geschiedenis, voetbal en culturen van/in Rotterdam. Zelf heb ik al een route uitgezet, maar wees vrij om dit aan te vullen of te veranderen.</p>
+            <img src="/img/winkels.jpg" class="img-responsive" alt="">
+            <p>In mijn tour lopen wij ook langs alle leuke winkels van Rotterdam waar u gerust mag shoppen en wat kan eten</p>
           </div>
         </div>
       </div>
@@ -66,6 +72,7 @@ function goBack() {
         <div class="row">
           <div class="col-xs-12 comment">
             <h5>Iemand</h5><span><i class="fa fa-thumbs-up"></i></span>
+
           </div>
         </div>
       </div>
@@ -77,6 +84,11 @@ function goBack() {
 
 
  <script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/ui.js"></script>
+<script src="https://jquery-ui.googlecode.com/svn-history/r3982/trunk/ui/i18n/jquery.ui.datepicker-nl.js"></script>
+<script type="text/javascript">
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <!-- <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
@@ -112,6 +124,9 @@ function goBack() {
       }
 
     })
+    $('#bestelGids').click(function(){
+        window.location.href = "betalen.html";
+    });
 </script>
 
 

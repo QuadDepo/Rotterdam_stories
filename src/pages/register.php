@@ -31,7 +31,7 @@ include '../header.php';
         <input type="text" placeholder="Email" class="form-control rd-input" id="email">
       </div>
       <div class="form-group">
-        <input type="text" placeholder="Geboortedatum" class="form-control rd-input" id="gb">
+        <input type="text" class="form-control rd-input" readonly placeholder="Geboortedatum" id="datepicker">
       </div>
       <div class="form-group">
         <input type="text" placeholder="Wachtwoord" class="form-control rd-input" id="wp">
@@ -57,8 +57,10 @@ function validateEmail(email) {
   return re.test(email);
 }
 
+
+
 $("#registreer").click(function(){
-  var naam = $("#naam"), email = $("#email"), gb = $("#gb"), wp = $("#wp"), wp2 = $("#wp2");
+  var naam = $("#naam"), email = $("#email"), gb = $("#datepicker"), wp = $("#wp"), wp2 = $("#wp2");
   var empty = false;
 
   var message;
@@ -108,9 +110,11 @@ $("#registreer").click(function(){
         naam: naam.val(),
         gb: gb.val(),
         email: email.val(),
-        wachtwoord: wp.val()
+        wachtwoord: wp.val(),
+        punten: 0
       };
       localStorage.setItem('account', JSON.stringify(account))
+      localStorage.setItem('PF', '/img/pf-img.jpg')
       console.log(localStorage.getItem('account'));
       window.location.href = "/login.html";
     }
@@ -137,5 +141,20 @@ $(".message").swipe( {
   },
   threshold:20,
 });
+
+
+
+		$(function(){
+			$('#datepicker').datepicker({
+				inline: true,
+				nextText: '&rarr;',
+				prevText: '&larr;',
+				showOtherMonths: true,
+				dateFormat: 'dd-mm-yy',
+				dayNamesMin: ['Z', 'M', 'D', 'W', 'D', 'V', 'S'],
+
+			});
+		});
+
 </script>
 <?php include '../footer.php'; ?>

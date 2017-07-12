@@ -86,3 +86,51 @@
 }
 #fout{
 }
+
+
+#rec-body{
+  margin-top: 30px;
+  textarea{
+    border: none;
+    width: 100%;
+    resize: none;
+    height: 150px;
+    border-bottom: 2px solid $green;
+  }
+  .fa-thumbs-up,.fa-thumbs-down{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 40px;
+  }
+  .fa-thumbs-up.active{
+    color: $green;
+  }
+  .fa-thumbs-down.active{
+    color: red;
+  }
+  .socials{
+    text-align: center;
+    font-size: 30px;
+    color: $green;
+  }
+  h4{
+    margin-top: 50px;
+    text-align: center;
+  }
+}
+.bottom{
+  position: absolute;
+  bottom: 0;
+  .skip{
+    color: #b8b8b8;
+    width: 100%;
+    display: block;
+    text-align: center;
+    &:focus, &:hover{
+      text-decoration: none;
+    }
+  }
+  button{
+    margin-top: 15px;
+  }
+}

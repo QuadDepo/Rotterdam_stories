@@ -10529,6 +10529,9 @@ h2 {
 h3 {
   font-size: 36px; }
 
+h4 {
+  font-size: 29px; }
+
 h5 {
   font-size: 22px; }
 
@@ -11633,6 +11636,43 @@ input:read-only {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%); }
+
+#rec-body {
+  margin-top: 30px; }
+  #rec-body textarea {
+    border: none;
+    width: 100%;
+    resize: none;
+    height: 150px;
+    border-bottom: 2px solid #188B43; }
+  #rec-body .fa-thumbs-up, #rec-body .fa-thumbs-down {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 40px; }
+  #rec-body .fa-thumbs-up.active {
+    color: #188B43; }
+  #rec-body .fa-thumbs-down.active {
+    color: red; }
+  #rec-body .socials {
+    text-align: center;
+    font-size: 30px;
+    color: #188B43; }
+  #rec-body h4 {
+    margin-top: 50px;
+    text-align: center; }
+
+.bottom {
+  position: absolute;
+  bottom: 0; }
+  .bottom .skip {
+    color: #b8b8b8;
+    width: 100%;
+    display: block;
+    text-align: center; }
+    .bottom .skip:focus, .bottom .skip:hover {
+      text-decoration: none; }
+  .bottom button {
+    margin-top: 15px; }
 
 body {
   overflow-x: hidden; }

@@ -100,6 +100,7 @@ var message = "";
       message = '';
     }else{
       window.location.href = "/";
+
     }
   });
 

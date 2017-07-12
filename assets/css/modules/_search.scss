@@ -13,7 +13,7 @@
     position: absolute;
     top: 7.5px;
     right: 30px;
-    
+
   }
 }
 #lijstGidsen{
@@ -42,6 +42,9 @@
   }
   img{
     border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
   }
 }
 #filterscreen{

@@ -11476,8 +11476,8 @@ input:read-only {
 
 #gids-body {
   margin-bottom: 100px;
-  height: 100%;
-  max-height: 100%;
+  max-height: 150%;
+  overflow-x: hidden;
   overflow-y: hidden; }
   #gids-body .menu {
     margin-top: 30px;
@@ -11504,6 +11504,20 @@ input:read-only {
 #bestelGids {
   position: absolute;
   bottom: 0; }
+
+.comment {
+  margin-top: 25px; }
+  .comment .inner {
+    padding: 10px;
+    background-color: #eee; }
+  .comment .fa-thumbs-up {
+    color: #188B43; }
+  .comment .fa-thumbs-down {
+    color: red; }
+  .comment span, .comment h5 {
+    display: inline-block; }
+  .comment span {
+    margin-left: 25px; }
 
 #search {
   padding-top: 25px;
@@ -11540,7 +11554,10 @@ input:read-only {
   .gistList-info:nth-child(even) {
     background-color: #eee; }
   .gistList-info img {
-    border-radius: 50%; }
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    object-fit: cover; }
 
 #filterscreen {
   top: 0;
@@ -11613,6 +11630,7 @@ input:read-only {
     margin-bottom: 10px; }
 
 #goed, #fout {
+  display: none;
   height: 100%;
   position: absolute;
   top: 0;
@@ -11621,7 +11639,6 @@ input:read-only {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.5); }
   #goed .icon, #fout .icon {
-    background-color: red;
     border-radius: 50%;
     position: absolute;
     left: 50%;
@@ -11636,6 +11653,12 @@ input:read-only {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%); }
+
+#goed .icon {
+  background-color: #188B43; }
+
+#fout .icon {
+  background-color: red; }
 
 #rec-body {
   margin-top: 30px; }
@@ -11673,6 +11696,10 @@ input:read-only {
       text-decoration: none; }
   .bottom button {
     margin-top: 15px; }
+
+.hidden-input {
+  visibility: hidden;
+  position: absolute; }
 
 body {
   overflow-x: hidden; }
@@ -11725,3 +11752,8 @@ body {
       left: 50%;
       font-size: 25px;
       transform: translateX(-50%); }
+
+.hiddenstories {
+  width: 0px;
+  height: 0px;
+  visibility: hidden; }

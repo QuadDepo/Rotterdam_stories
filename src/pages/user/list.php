@@ -182,7 +182,7 @@ include '../../nav.php'; ?>
                     <div class="col-xs-12 gistList-info">
                     <a href="/gidsen">
                         <div class="col-xs-3">
-                            <img src="/img/pf-img.jpg" class="img-responsive" alt="">
+                            <img src="/img/pf${parseInt([i]) + 1}.jpg" class="img-responsive" alt="">
                         </div>
                         <div class="col-xs-9">
                             <h5>${gidsenArray[i].name}</h5><span style="background-color: ${gidsenArray[i].online ? 'green' : 'red'}"></span>

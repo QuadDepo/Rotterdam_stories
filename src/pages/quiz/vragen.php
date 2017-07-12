@@ -46,7 +46,29 @@ include '../../auth.php';
  include '../../scripts.php';
   ?>
 
+  <script type="text/javascript">
+    $('.fout').click(function(){
+      $('#fout').fadeIn();
+      setTimeout(function(){
+        $('body').fadeOut(function(){
+          window.location.href = '/quiz';
+        });
+      }, 2000)
+    })
+    $('.goed').click(function(){
+      $('#goed').fadeIn();
+      pointAcc = JSON.parse(localStorage.getItem('account'));
+      pointAcc.punten += 200;
+      console.log(pointAcc.punten);
+      localStorage.setItem('account', JSON.stringify(pointAcc));
 
+      setTimeout(function(){
+        $('body').fadeOut(function(){
+          window.location.href = '/quiz';
+        });
+      }, 1500)
+    })
+  </script>
 
 
  <?php

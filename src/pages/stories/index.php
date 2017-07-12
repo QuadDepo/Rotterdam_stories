@@ -12,6 +12,11 @@ include '../../auth.php';
 
 
  ?>
+ <style media="screen">
+   body{
+     overflow-y: hidden;
+   }
+ </style>
  <div class="swipe">
    <div class="left">
 
@@ -32,13 +37,18 @@ include '../../auth.php';
       </div>
       <div class="instrucie">
         <div class="inner"><h2>Bekijk waar iets leuks is</h2>
-        <p>Door heel rotterdam</p>
+        <p>En ga er heen</p>
 
       </div>
       <i class="fa fa-arrow-right"></i>
       </div>
       <div class="instrucie">
-        <div class="inner">3</div>
+        <div class="inner">
+          <h2>Hoe het werkt</h2>
+          <p>Klik recht of verder te gaan</p>
+          <p>Klik links of terug te gaan</p>
+          <p>Swipe omhoog om terug te gaan naar het hoofdmenu</p>
+        </div>
         <i class="fa fa-arrow-right"></i>
       </div>
     </div>
@@ -47,13 +57,29 @@ include '../../auth.php';
 
     </div>
 
+    <div class="hiddenstories">
+        <img class="sto" src="/img/winkels.jpg">
+        <img class="sto2 "src="/img/story1.jpg">
+    </div>
 
 
         <script type="text/javascript">
-
                 var lstore = JSON.parse(localStorage.getItem('stories'));
-                var ani = true;
+                console.log(lstore);
+                if (lstore ===  null) {
+                  lstore = [];
+                  var newfotos =
+                    {
+                      img: $('.sto2').attr('src')
+                    }
+                  lstore.push(newfotos);
 
+                  localStorage.setItem('stories', JSON.stringify(lstore));
+                }
+
+
+
+                var ani = true;
                 for (var i = 0; i < lstore.length; i++) {
                   if (lstore[i].img === '#') {
                   console.log(lstore.splice([i], 1));
@@ -121,7 +147,8 @@ include '../../auth.php';
                 });
                 $(".left, .right").swipe( {
                   swipeUp:function(event, direction, distance, duration) {
-                      window.location.href = "/";
+                    window.history.back();
+
                   },
                   threshold:100,
                 });
@@ -134,7 +161,8 @@ include '../../auth.php';
                   var maxLength = fotos * $('body').width() - $('body').width();
                   console.log(marginL + maxLength);
                   if (marginL + maxLength === 0) {
-                    window.location.href = "/";
+                    window.history.back();
+
                     console.log('laaste foto');
                   }else{
 

@@ -51,7 +51,7 @@
 }
 
 #goed, #fout{
-  // display: none
+  display: none;
   height: 100%;
   position: absolute;
   top: 0;
@@ -60,7 +60,7 @@
   width: 100%;
   background-color: rgba(255,255,255,.5);
   .icon{
-    background-color: red;
+
     border-radius: 50%;
     position: absolute;
     left: 50%;
@@ -81,10 +81,15 @@
   }
 }
 #goed{
-
+  .icon{
+    background-color: $green;
+  }
 
 }
 #fout{
+  .icon{
+    background-color: red
+  }
 }
 
 
@@ -133,4 +138,9 @@
   button{
     margin-top: 15px;
   }
+}
+
+.hidden-input{
+  visibility: hidden;
+  position: absolute;
 }

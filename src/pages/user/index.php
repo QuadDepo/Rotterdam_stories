@@ -28,45 +28,26 @@ include '../../nav.php'; ?>
                         <p>Alle gidsen</p>
                     </a>
                 </div>
-                <div class="col-xs-4">
-                    <img src="/img/login_bg.png" class="rounded" alt="">
-                </div>
-                <div class="col-xs-4">
-                    <img src="/img/login_bg.png" class="rounded" alt="">
-                </div>
-                <div class="col-xs-4">
-                    <img src="/img/login_bg.png" class="rounded" alt="">
-                </div>
-                <div class="col-xs-4">
-                    <img src="/img/login_bg.png" class="rounded" alt="">
-                </div>
-                <div class="col-xs-4">
-                    <img src="/img/login_bg.png" class="rounded" alt="">
-                </div>
-                <div class="col-xs-4">
-                    <img src="/img/login_bg.png" class="rounded" alt="">
-                </div>
+                <a href="/gidsen">
+                  <div class="col-xs-4"><img src="/img/pf1.jpg" alt="" class="rounded"></div>
+                </a>
+                <a href="/gidsen">
+                  <div class="col-xs-4"><img src="/img/pf2.jpg" alt="" class="rounded"></div>
+                </a>
+                <a href="/gidsen">
+                  <div class="col-xs-4"><img src="/img/pf3.jpg" alt="" class="rounded"></div>
+                </a>
+                <a href="/gidsen">
+                  <div class="col-xs-4"><img src="/img/pf4.jpg" alt="" class="rounded"></div>
+                </a>
+                <a href="/gidsen">
+                  <div class="col-xs-4"><img src="/img/pf5.jpg" alt="" class="rounded"></div>
+                </a>
+                <a href="/gidsen">
+                  <div class="col-xs-4"><img src="/img/pf6.jpg" alt="" class="rounded"></div>
+                </a>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br> asfasdfs
+
         </div>
     </div>
 

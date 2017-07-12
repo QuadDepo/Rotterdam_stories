@@ -69,8 +69,8 @@
 
 #gids-body{
   margin-bottom: 100px;
-  height: 100%;
-  max-height: 100%;
+  max-height: 150%;
+  overflow-x: hidden;
   overflow-y: hidden;
   .menu{
     margin-top: 30px;
@@ -81,8 +81,10 @@
   }
   .info{
     width: 200%;
+
     white-space: nowrap;
     height: 100%;
+
     .info-inner{
       height: 200%;
 
@@ -101,4 +103,23 @@
 #bestelGids{
   position: absolute;
   bottom: 0;
+}
+.comment{
+  margin-top: 25px;
+  .inner{
+    padding: 10px;
+    background-color: #eee;
+  }
+  .fa-thumbs-up{
+    color: $green;
+  }
+  .fa-thumbs-down{
+    color: red;
+  }
+  span, h5{
+    display: inline-block;
+  }
+  span{
+    margin-left: 25px;
+  }
 }

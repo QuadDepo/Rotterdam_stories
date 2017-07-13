@@ -144,3 +144,44 @@
   visibility: hidden;
   position: absolute;
 }
+#punten-body{
+  .first{
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+#lijst{
+  a{
+    color: black;
+    .col-xs-12{
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    h5{
+      margin: 0;
+    }
+    p{
+      color: $green;
+    }
+  }
+}
+#verder{
+  position: absolute;
+  bottom: 0;
+}
+
+
+#kortinginfo{
+  .col-xs-12{
+    text-align: center;
+    margin-top: 15px;
+    color: $green;
+  }
+  .col-xs-8{
+    margin-top: 25px;
+  }
+}
+#verderKorting{
+  position: absolute;
+  bottom: 0;
+}

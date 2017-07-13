@@ -48,10 +48,10 @@ include '../../auth.php';
 <div class="bottom">
 
 
-<a href="/" class="skip">
+<a href="einde.html" class="skip">
   Sla over
 </a>
-<button id="eindetour" class="btn-100 btn-big">Tour eindigen</button>
+<button id="eindetour" class="btn-100 btn-big">Verder</button>
 </div>
 
 
@@ -99,7 +99,7 @@ var message = "";
       error = false;
       message = '';
     }else{
-      window.location.href = "/";
+      window.location.href = "einde.html";
 
     }
   });

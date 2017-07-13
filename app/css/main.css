@@ -11701,6 +11701,36 @@ input:read-only {
   visibility: hidden;
   position: absolute; }
 
+#punten-body .first {
+  margin-top: 25px;
+  margin-bottom: 25px; }
+
+#lijst a {
+  color: black; }
+  #lijst a .col-xs-12 {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  #lijst a h5 {
+    margin: 0; }
+  #lijst a p {
+    color: #188B43; }
+
+#verder {
+  position: absolute;
+  bottom: 0; }
+
+#kortinginfo .col-xs-12 {
+  text-align: center;
+  margin-top: 15px;
+  color: #188B43; }
+
+#kortinginfo .col-xs-8 {
+  margin-top: 25px; }
+
+#verderKorting {
+  position: absolute;
+  bottom: 0; }
+
 body {
   overflow-x: hidden; }
 

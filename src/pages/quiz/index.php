@@ -9,7 +9,7 @@ include '../../auth.php';
    if (lstore.punten > 300) {
     //  lstore.punten = 0;
      localStorage.setItem('account', JSON.stringify(lstore))
-     window.location.href = "/einde.html";
+     window.location.href = "recensie.html";
    }
  </script>
 <input onchange="readURL(this);" class="hidden-input story" type="file" accept="video/*capture=camcorder"></input>
@@ -148,7 +148,7 @@ window.location.href = "/stories";
 
   // stop tour
   $('#end').click(function(){
-    window.location.href = '/';
+    window.location.href = 'recensie.html';
   })
 
 

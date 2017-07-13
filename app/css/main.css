@@ -11705,6 +11705,9 @@ input:read-only {
   margin-top: 25px;
   margin-bottom: 25px; }
 
+.punten span {
+  color: #188B43; }
+
 #lijst a {
   color: black; }
   #lijst a .col-xs-12 {
@@ -11714,6 +11717,9 @@ input:read-only {
     margin: 0; }
   #lijst a p {
     color: #188B43; }
+  #lijst a img {
+    height: 50px;
+    width: 50px; }
 
 #verder {
   position: absolute;

@@ -150,6 +150,11 @@
     margin-bottom: 25px;
   }
 }
+.punten{
+  span{
+    color: $green;
+  }
+}
 #lijst{
   a{
     color: black;
@@ -162,6 +167,10 @@
     }
     p{
       color: $green;
+    }
+    img{
+      height: 50px;
+      width: 50px;
     }
   }
 }

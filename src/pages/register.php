@@ -38,10 +38,10 @@ include '../header.php';
               </div>
           </div>
       <div class="form-group">
-        <input type="text" placeholder="Wachtwoord" class="form-control rd-input" id="wp">
+        <input type="password" placeholder="Wachtwoord" class="form-control rd-input" id="wp">
       </div>
       <div class="form-group">
-        <input type="text" placeholder="Wachtwoord overnieuw" class="form-control rd-input" id="wp2">
+        <input type="password" placeholder="Wachtwoord overnieuw" class="form-control rd-input" id="wp2">
       </div>
 
     </div>

@@ -34,7 +34,7 @@ De tour is afgelopen
       <a href="korting.html">
       <div class="col-xs-12">
         <div class="col-xs-3">
-          <img src="/img/pf1.jpg" class="img-responsive img-circle" alt="">
+          <img src="/img/pizza.jpg" class="img-responsive img-circle" alt="">
         </div>
         <div class="col-xs-9 text-left">
           <h5>Pizzaria Portofino</h5>
@@ -45,7 +45,7 @@ De tour is afgelopen
       <a href="korting.html">
       <div class="col-xs-12">
         <div class="col-xs-3">
-          <img src="/img/pf1.jpg" class="img-responsive img-circle" alt="">
+          <img src="/img/ijs.jpg" class="img-responsive img-circle" alt="">
         </div>
         <div class="col-xs-9 text-left">
           <h5>Ijssalon Vivaldi</h5>
@@ -56,7 +56,7 @@ De tour is afgelopen
       <a href="korting.html">
       <div class="col-xs-12">
         <div class="col-xs-3">
-          <img src="/img/pf1.jpg" class="img-responsive img-circle" alt="">
+          <img src="/img/smullers.jpg" class="img-responsive img-circle" alt="">
         </div>
         <div class="col-xs-9 text-left">
           <h5>Smullers Rotterdam2</h5>

@@ -13,7 +13,7 @@ include '../../terug.php';
     <div class="row" id="info-wachten">
       <div class="col-xs-12">
       <div class="col-xs-4">
-        <img src="/img/foto-gids.jpg" class="img-circle img-responsive" alt="">
+        <img src="/img/pizza.jpg" class="img-circle img-responsive" alt="">
       </div>
       <div class="col-xs-8">
         <h5>Pizzaria Portofino</h5>
